@@ -1,5 +1,10 @@
 /* nejsme vcerejsi, pouzivame moderni box model */
-*, :after, :before { box-sizing: border-box; }
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
 
 /*
  BARVY
@@ -7,37 +12,328 @@
  Jedeme retro cernobile, dnes barvy nepotrebujeme.
 */
 
-
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    font-family: 'Merriweather', serif;
-    font-size: 16px;
-    line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  font-family: "Merriweather", serif;
+  font-size: 16px;
+  line-height: 1.6;
 }
-
 
 /* HLAVICKA */
 
 .titulek {
-    font-family: 'Raleway', serif;
+  font-family: "Raleway", serif;
 }
+
+/* hlavicka  */
+
+.hlavicka {
+  position: relative;
+
+  background-image: url(images/island-hlavicka.jpg);
+  display: flex;
+  margin: 0;
+  padding: 40px;
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  color: white;
+  justify-content: space-between;
+  text-align: center;
+
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.hlavicka::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.hlavicka h1 {
+  font-size: 45px;
+  margin: 0;
+}
+/* kvuli zatemneni */
+.hlavicka h1,
+.perex,
+.autor {
+  position: relative;
+}
+
+
+.autor {
+  font-style: italic;
+  padding: 20px;
+  border-top: 1px solid white;
+}
+
 
 
 /* MENU */
 
+nav {
+  background: white;
+  padding: 20px 20px;
+  font-family: "Raleway", serif;
+}
 
+ul {
+  list-style-type: none;
+}
 
+.menu a {
+  color: rgb(75, 72, 72);
+  text-decoration: none;
+  display: block;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.logo a:hover {
+  text-decoration: none;
+}
+
+.menu li {
+  font-size: 16px;
+  padding: 15px 5px;
+  white-space: nowrap;
+  border-bottom: 0.5px solid rgb(196, 194, 194);
+}
+
+.toggle a {
+  font-size: 20px;
+}
+
+/* /* Mobile menu */
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.item {
+  width: 100%;
+  text-align: center;
+  /* display: none; */
+}
 
 /* OBSAH */
 
+section {
+  padding: 10px 5%;
+}
 
+section img {
+  padding-top: 25px;
+  width: 100%;
+}
 
+.uvod {
+  text-align: left;
+  line-height: 1.5;
+}
+
+.popisek {
+  font-family: "Raleway", serif;
+  text-align: center;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: "Merriweather", serif;
+}
+
+.nadpis-fotogalerie {
+  padding-left: 40px;
+}
+
+.galerie .popisek {
+  color: #767a80;
+  font-weight: 700;
+}
+
+.galerie .popisek-copy {
+  color: #83878f;
+  font-weight: 400;
+}
+
+.popisek a {
+  text-decoration: underline;
+  text-decoration-color: #83878f;
+}
 
 /* FOTOGALERIE */
 
+.uvod img,
+.proc img,
+.videt img {
+  padding-top: 40px;
+}
 
+.proc img {
+  position: relative;
+  width: 100%;
+}
 
+.foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
+.kontejner img {
+  width: 100%;
+}
 /* PATICKA */
+
+footer {
+  display: block;
+  width: 100%;
+  padding: 10px 30px;
+  background-image: linear-gradient(rgb(223, 223, 223), rgb(255, 255, 255));
+}
+
+/* tablet */
+
+@media (min-width: 768px) {
+  /* menu */
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .menu a {
+    align-items: center;
+    height: 100%;
+  }
+
+  .menu .item {
+    border: 0.5px solid rgb(196, 194, 194);
+    padding: 5px 25px;
+  }
+
+  nav {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  /* fotky */
+  .kontejner {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .kontejner .popisek {
+    position: absolute;
+    margin: 0;
+    bottom: 4px;
+    right: 16px;
+  }
+
+  .kontejner a {
+    color: white;
+  }
+
+  /* galerie */
+  /* odstranime popisky */
+  .foto p {
+    display: none;
+  }
+
+  .foto {
+    width: 50%;
+    float: left;
+    padding: 0;
+  }
+  footer {
+    clear: both;
+  }
+}
+
+/* desktop */
+
+@media (min-width: 1281px) {
+  /* header  */
+  .hlavicka h1 {
+    font-size: 80px;
+  }
+
+  .hlavicka .perex {
+    padding: 0 250px;
+  }
+
+  /* obsah  */
+
+  section.proc {
+    text-align: left;
+    padding-right: 150px;
+  }
+
+  section.videt  {
+    padding-left: 150px;
+  }
+
+  /* menu */
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+  }
+
+  .item {
+    text-align: left;
+  }
+
+  .menu .item {
+    border: none;
+    border-bottom: 0.5px solid rgb(196, 194, 194);
+  }
+
+  /* body  */
+  .list {
+    position: relative;
+    width: 60%;
+    box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.75);
+    margin: 0 auto;
+    z-index: 20000;
+    padding-top: 30px;
+    bottom: 50px;
+    background-color: white;
+  }
+
+  .test {
+    display: flex;
+  }
+
+  .obal {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+  }
+
+  /* fotky */
+  .foto {
+    width: calc(100% / 3);
+  }
+}
