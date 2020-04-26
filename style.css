@@ -68,14 +68,19 @@ body {
   position: relative;
 }
 
-
 .autor {
   font-style: italic;
   padding: 20px;
-  border-top: 1px solid white;
 }
 
-
+.autor::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  width: 10%;
+  left: 45%;
+  border: 0.7px solid white;
+}
 
 /* MENU */
 
@@ -154,13 +159,28 @@ section img {
   font-weight: 400;
 }
 
-h2 {
-  font-family: "Merriweather", serif;
+.nadpis {
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  padding-bottom: 30px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 30px 0;
 }
 
-.nadpis-fotogalerie {
-  padding-left: 40px;
+
+
+/* cara pod nadpisem */
+.nadpis::after {
+  position: absolute;
+  content: "";
+  left: -2px;
+  bottom: 0;
+  width: 100px;
+  border-bottom: 4px solid #629edb;
 }
+
 
 .galerie .popisek {
   color: #767a80;
@@ -254,14 +274,40 @@ footer {
   /* galerie */
   /* odstranime popisky */
   .foto p {
-    display: none;
+    /* display: none; */
   }
 
   .foto {
+    position: relative;
     width: 50%;
     float: left;
     padding: 0;
+    overflow: hidden;
   }
+
+  .foto:hover img {
+    transform: scale(1.15);
+  }
+
+  .foto .popisek {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 16px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .foto .popisek a {
+    color: white;
+  }
+
+  .foto:hover .popisek {
+    transform: translateY(-86px);
+  }
+
   footer {
     clear: both;
   }
@@ -286,9 +332,10 @@ footer {
     padding-right: 150px;
   }
 
-  section.videt  {
+  section.videt {
     padding-left: 150px;
   }
+
 
   /* menu */
 
